@@ -13,7 +13,7 @@ public class JedisMain {
         // key name for the list
         String lstKey = "queue#numList";
         Integer numStart = 1;
-        Integer numStop = 10;
+        Integer numStop = 100;
         
         RedisListExample redisListExample = new RedisListExample(redisHost, redisPort);
         

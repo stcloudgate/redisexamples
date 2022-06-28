@@ -4,13 +4,40 @@
   <artifactId>RedisAppExample</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-	<dependencies>
-		<dependency>
-		    <groupId>redis.clients</groupId>
-		    <artifactId>jedis</artifactId>
-		    <version>2.6.2</version>
-		    <type>jar</type>
-		    <scope>compile</scope>
-		</dependency>
-	</dependencies>
+	  <properties>
+	     <maven.compiler.source>1.8</maven.compiler.source>
+	     <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	  
+		<dependencies>
+			<dependency>
+			    <groupId>redis.clients</groupId>
+			    <artifactId>jedis</artifactId>
+			    <version>2.6.2</version>
+			    <type>jar</type>
+			    <scope>compile</scope>
+			</dependency>
+		</dependencies>
+	
+		<build>
+			<plugins>
+				<plugin>
+					<!-- Build an executable JAR -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.1.0</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<mainClass>jedisclient.JedisMain</mainClass>
+							</manifest>
+						</archive>
+						 <descriptorRefs>
+                    		<descriptorRef>jar-with-dependencies</descriptorRef>
+                		</descriptorRefs>
+					</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
