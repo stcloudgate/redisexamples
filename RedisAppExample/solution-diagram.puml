@@ -1,0 +1,21 @@
+
+
+@startuml
+
+JedisMain "One" --- "many" RedisListExample
+
+class JedisMain [[java:jedisclient.JedisMain]] {
+	+{static} main(args: String[]): void
+}
+
+class RedisListExample [[java:jedisclient.listexample.RedisListExample]] {
+	-jedis: Jedis
+	+RedisListExample(redisHost: String, redisPort: Integer)
+	+addNumbers(lstKey: String, iStart: Integer, iStop: Integer): void
+	+displayNumDesc(lstKey: String, iStartPos: Integer, iStopPos: Integer): void
+	-displayNumAsc(lstKey: String): String
+}
+
+@enduml
+
+	
